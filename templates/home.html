@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shipment Arrival Prediction</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+</head>
+<body>
+    <h1>Shipment Prediction</h1>
+    <h3>Let's check whether the shipment would arrive on time.</h3>
+    <center><img src="https://images.pexels.com/photos/799091/pexels-photo-799091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Photography of Ship" width="500px"></center>
+    <form action="/result" method="POST">
+        <fieldset>
+            <!--input 1-->
+            <p>Q1. Select the gender of the customer.</p>
+                <select required name="Gender">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                </select>
+            <!--input 2-->
+            <p>Q2. Select the warehouse block that in charge.</p>
+                <select required name="Warehouse_block">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="A">Warehouse A</option>
+                    <option value="B">Warehouse B</option>
+                    <option value="C">Warehouse C</option>
+                    <option value="D">Warehouse D</option>
+                    <option value="F">Warehouse F</option>
+                </select>
+            <!--input 3-->
+            <p>Q3. Select the mode of shipment.</p>
+                <select required name="Mode_of_Shipment">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="Ship">Ship</option>
+                    <option value="Flight">Flight</option>
+                    <option value="Road">Road</option>
+                </select>
+            <!--input 4-->
+            <p>Q4. Select the product importance.</p>
+                <select required name="Product_importance">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            <!--input 5-->
+            <p>Q5. Select the number of calls that the customer has made.</p>
+                <select required name="Customer_care_calls">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            <!--input 6-->
+            <p>Q6. Select the rating that the customer gave.</p>
+                <select required name="Customer_rating">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            <!--input 7-->
+            <p>Q7. Select the purchases that the customer had made.</p>
+                <select required name="Prior_purchases">
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+            <!--input 8-->
+            <p>Q8. Select the cost of the product (in USD).</p>
+            <input type="number" placeholder="Enter the product cost" name="Cost_of_the_Product" required>
+            <!--input 9-->
+            <p>Q9. Select the discount given to customer.</p>
+            <input type="number" placeholder="Enter the discount" name="Discount_offered" required>
+            <!--input 10-->
+            <p>Q10. Select the weight (in gms) of the product.</p>
+            <input type="number" placeholder="Enter the product's weight" name="Weight_in_gms" required>
+            <div class="parent">
+                <button type="submit" class="child" value="Submit">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
