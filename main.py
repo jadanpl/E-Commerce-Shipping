@@ -2,7 +2,10 @@ from flask import Flask, render_template, request
 import numpy as np
 import pickle
 
+# loading the pickle file
 model = pickle.load(open('finalized_dt_model_ecomm.pkl','rb'))
+
+# instantiating an object of Flask
 app = Flask(__name__)
 
 @app.route("/")
