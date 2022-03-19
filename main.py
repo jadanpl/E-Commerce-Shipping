@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import numpy as np
-# import pandas as pd
 import pickle
 
 model = pickle.load(open('finalized_dt_model_ecomm.pkl','rb'))
