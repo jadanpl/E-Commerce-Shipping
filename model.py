@@ -1,32 +1,37 @@
 import pandas as pd
-# from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import scale
-from sklearn.tree import DecisionTreeClassifier as DT
+from sklearn.neighbors import KNeighborsClassifier
 import pickle
 
-ecomm = pd.read_csv("https://raw.githubusercontent.com/jadanpl/E-Commerce-Shipping/main/ecomm.csv")
+# Load dataset
+ecomm = pd.read_csv("https://raw.githubusercontent.com/jadanpl/E-Commerce-Shipping/main/E-Commerce%20Shipping%20Data.csv")
 
-# data preprocessing for modeling
-dummy1 = pd.DataFrame(pd.get_dummies(ecomm[['Warehouse_block', 'Mode_of_Shipment','Product_importance','Gender']]))
-dummy2 = pd.DataFrame(pd.get_dummies(ecomm[['Customer_care_calls','Customer_rating','Prior_purchases']].astype(str)))
-ecomm1 = pd.DataFrame(scale(ecomm[['Cost_of_the_Product','Discount_offered', 'Weight_in_gms']]),
-                      columns=['Cost_of_the_Product','Discount_offered', 'Weight_in_gms'])
-ecomm2 = pd.concat([ecomm1,dummy1,dummy2,ecomm[['Reached.on.Time_Y.N']]],axis=1)
+# Rename columns
+cols=[]
+for i in ecomm.columns[1:-1]:
+    i = i.lower()
+    cols.append(i);
+cols = ['ID'] +  cols
+cols.append('arrival')
+ecomm.columns = cols
 
-# split data into output and input
-X = ecomm2.iloc[:,:-1] # inputs
-Y = ecomm2['Reached.on.Time_Y.N'] # outputs
+# Data preprocessing
+ecomm['gender'] = ecomm.gender.map({'F':0, 'M':1})
+ecomm['customer_rating'] = ecomm['customer_rating'].map({5:0, 4:0, 3:0, 2:0, 1:1})
+dummy = pd.DataFrame(pd.get_dummies(ecomm[['warehouse_block', 'mode_of_shipment','product_importance']]))
+ecomm1 = pd.DataFrame(scale(ecomm[['cost_of_the_product','weight_in_gms','discount_offered']]),
+                      columns=['cost_of_the_product','weight_in_gms','discount_offered'])
+ecomm_final = pd.concat([ecomm1,dummy,ecomm[['customer_care_calls', 'prior_purchases','gender', 'arrival','customer_rating']]],
+                        axis=1)
 
-# split data into train data and test data
-# X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size=0.25,shuffle=True)
+# Split data into output and input
+X = ecomm_final.iloc[:,:-1] # inputs
+Y = ecomm_final['customer_rating'] # outputs
 
-# Decision Tree
-DT_model = DT(criterion = 'entropy',max_depth=4)
+# Model building
+KNN_model = KNeighborsClassifier(n_neighbors=11, metric='euclidean')
+KNN_model.fit(X, Y)
 
-# Fit the model on dataset
-# DT_model.fit(X_train, Y_train)
-DT_model.fit(X, Y)
-
-# save the model
-filename = 'finalized_dt_model_ecomm.pkl'
-pickle.dump(DT_model, open(filename, 'wb'))
+# Save the model
+filename = 'finalized_knn.pkl'
+pickle.dump(KNN_model, open(filename, 'wb'))
