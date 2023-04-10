@@ -21,6 +21,6 @@ https://user-images.githubusercontent.com/57357735/230870228-6b66ab5c-1b04-485e-
 
 
 ## Recommendation 📥
-* Utilize Randomized or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
+* Utilize Randomized Search or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
 * Handle the class imbalance using SMOTE, SMOTE-TOMEK, ADASYN, or SMOTE-ENN techniques.  
 * If it is possible, we could include other variables that might be relevant in predicting customer rating, such as types of products and product quality.
