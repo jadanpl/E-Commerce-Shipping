@@ -11,7 +11,7 @@ To achieve an accuracy rate of at least 80% in predicting customer ratings withi
 The dataset was obtained from the <a href ="https://www.kaggle.com/datasets/prachi13/customer-analytics">E-Commerce Shipping Data</a> from Kaggle. 
 
 ## Techniques Used 🕵️‍♀️
-To determine whether a customer would give rating 1, we can map the rating 2 to 5 as 0 to represent rating other than 1. It will become a binary classification instead of a multiclass classification. 
+To determine whether a customer would give rating 1, we can map the rating 2 to 5 as 0 to represent rating other than 1. It will become a <b>binary classification</b>  instead of a multiclass classification. 
 
 ## Result 🔎
 The final model is a k-Nearest Neighbors (KNN) classifier. The final model returned accuracy score of about 77.60% for the testing data. Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below).
@@ -22,4 +22,5 @@ https://user-images.githubusercontent.com/57357735/230870228-6b66ab5c-1b04-485e-
 
 ## Recommendation 📥
 * Utilize Randomized or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
-* If it is possible, we could collect more data of other variables that might be relevant in predicting customer rating.
+* Handle the class imbalance using SMOTE, SMOTE-TOMEK, ADASYN, or SMOTE-ENN techniques.  
+* If it is possible, we could include other variables that might be relevant in predicting customer rating.
