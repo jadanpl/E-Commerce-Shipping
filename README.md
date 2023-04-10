@@ -1,11 +1,18 @@
 # E-Commerce-Shipping
-Please see my Medium article for full explanation: <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python (Model Deployment Using Flask Included) | Classification Case Study Using KNN Model</a>.
+For full explanation, please read my Medium article, <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python (Model Deployment Using Flask Included) | Classification Case Study Using KNN Model</a>.
+
 ## Problem Statement 🤩
+The e-commerce platform is facing challenges in predicting customer ratings accurately, which can lead to reduced customer satisfaction, lower sales, and negative brand reputation. Despite the availability of customer rating data, the current system lacks the ability to analyze and interpret the data in a meaningful way, resulting in inaccurate predictions. This creates a need for a more sophisticated and accurate machine learning model that can analyze customer rating data to predict customer ratings with high accuracy, leading to improved customer satisfaction, increased sales, and positive brand reputation.
+
 ## Objective 🤔
-The aim of this project is to create and deploy a model that can predict the shipment arrival using the mentioned dataset.
+To achieve an accuracy rate of at least 80% in predicting customer ratings within a year using specific order details. This will help businesses make data-driven decisions about their products, marketing strategies, and customer service.
+
 ## Dataset Source 📅
 The dataset was obtained from the <a href ="https://www.kaggle.com/datasets/prachi13/customer-analytics">E-Commerce Shipping Data</a> from Kaggle. 
 
-## Techniques Used 🕵️‍♀️
 ## Result 🔎
+The final model is a k-Nearest Neighbors (KNN) classifier. The final model returned accuracy score of about 77.60% for the testing data. Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below).
+
 ## Recommendation 📥
+* Utilize Randomized or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
+* If it is possible, we could collect more data of other variables that might be relevant in predicting customer rating.
