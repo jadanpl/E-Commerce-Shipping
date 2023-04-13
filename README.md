@@ -21,6 +21,7 @@ https://user-images.githubusercontent.com/57357735/230870228-6b66ab5c-1b04-485e-
 
 
 ## Recommendation 📥
+* Use other classification machine learning algorithms, such as support vector machine, random forest classifier, and logistic regression. 
 * Utilize Randomized Search or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
 * Handle the class imbalance using SMOTE, SMOTE-TOMEK, ADASYN, or SMOTE-ENN techniques.  
-* If it is possible, we could include other variables that might be relevant in predicting customer rating, such as types of products and product quality.
+* You may try to build multiclass classification model using this dataset, which means you may not need to map the rating 2 to 5 as 0 before you train the model. For a multiclass multiclass classification model, it will return the result that indicates whether a customer will give rating 1, 2, 3, 4, or 5 specifically, instead of indicating whether a customer will give rating 1 or not.  
