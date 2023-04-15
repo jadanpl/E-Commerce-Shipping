@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import pickle
 
 # Load dataset
-ecomm = pd.read_csv("https://raw.githubusercontent.com/jadanpl/E-Commerce-Shipping/main/E-Commerce%20Shipping%20Data.csv")
+ecomm = pd.read_csv("https://raw.githubusercontent.com/jadanpl/E-Commerce-Shipping/main/raw_data.csv")
 
 # Rename columns
 cols=[]
