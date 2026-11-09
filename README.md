@@ -1,21 +1,49 @@
 # E-Commerce-Shipping
-For full explanation, please read my Medium article, <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python (Model Deployment Using Flask Included) | Classification Case Study Using KNN Model</a>.
-
 ## Problem Statement 🤩
 The e-commerce platform is facing challenges in predicting customer ratings accurately, which can lead to reduced customer satisfaction, lower sales, and negative brand reputation. Despite the availability of customer rating data, the current system lacks the ability to analyze and interpret the data in a meaningful way, resulting in inaccurate predictions. This creates a need for a more sophisticated and accurate machine learning model that can analyze customer rating data to predict customer ratings with high accuracy, leading to improved customer satisfaction, increased sales, and positive brand reputation.
 
-## Objective 🤔
-To achieve an accuracy rate of at least 80% in predicting customer ratings within a year using specific order details. This will help businesses make data-driven decisions about their products, marketing strategies, and customer service.
+## 📌 Project Overview 🤔 
+This project explores an e-commerce dataset (sourced from Kaggle containing electronic product customer data) through a dual-lens approach:
+1. **Predictive Modeling (Python):** Building an end-to-end machine learning pipeline to test if supply-chain metadata can forecast customer satisfaction ratings.
+2. **Business Intelligence (Excel Dashboard):** Designing a professional, interactive Excel dashboard to track key performance indicators (KPIs) and visualize customer fulfillment trends.
 
 ## Dataset Source 📅
 The dataset was obtained from the <a href ="https://www.kaggle.com/datasets/prachi13/customer-analytics">E-Commerce Shipping Data</a> from Kaggle. 
 
 ## Techniques Used 🕵️‍♀️
-To determine whether a customer would give rating 1, we can map the rating 2 to 5 as 0 to represent rating other than 1. It will become a <b>binary classification</b>  instead of a multiclass classification. 
-
+* **Languages & Tools:** Python, Microsoft Excel
+* **Python Machine Learning Libraries:** Scikit-Learn (`LogisticRegression`, `RandomForestClassifier`, `KNeighborsClassifier`, `CategoricalNB`), Imbalanced-Learn (`SMOTE`, `imblearn.pipeline.Pipeline`)
+* **Model Validation & Tuning:** `StratifiedKFold`, `RandomizedSearchCV`, multi-metric tracking (`recall_macro`, `f1_macro`, `accuracy`, `roc_auc`)
+* **Excel Data Visualization & BI:** Pivot Tables, Pivot Charts (Pie, Area, Doughnut, Column, Bar charts), Slicers, Camera Tool, and custom color palettes ("Trees During Fall" theme).
+  
 ## Result 🔎
-The final model is a k-Nearest Neighbors (KNN) classifier. The final model returned accuracy score of about 77.60% for the testing data. Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below).
+## 🔍 Part 1: Python Machine Learning Pipeline
 
+### Methodology & Experimental Workflow
+* **Preprocessing & Leakage Prevention:** Built modular pipelines using Scikit-Learn's `ColumnTransformer` to handle scaling and encoding strictly inside training folds.
+* **Class Imbalance Management:** Implemented **SMOTE** via `imblearn` pipelines and benchmarked against models with `class_weight='balanced'`.
+* **Hyperparameter Optimization:** Deployed `RandomizedSearchCV` across a 5-Fold Stratified Cross-Validation framework, optimizing for macro-averaged metrics.
+
+### Findings & Insights
+* **The Performance Ceiling:** All models (Random Forest, Logistic Regression, KNN, Naive Bayes) consistently capped at **~50% Macro Recall and ROC-AUC** (random-guessing level). 
+* **Feature Limitation:** Rigorous validation proved that physical logistics attributes (`weight_in_gms`, `cost_of_the_product`, `warehouse_block`, `mode_of_shipment`) share overlapping distributions and lack direct mathematical correlation with human customer satisfaction ratings.
+* **Strategic Takeaway:** Customer sentiment relies on unmeasured qualitative factors (product quality, customer support, item damage) rather than supply-chain metadata alone.
+For full explanation, please read my Medium article, <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python (Model Deployment Using Flask Included) | Classification Case Study Using KNN Model</a>.
+---
+
+## 📊 Part 2: Excel Interactive Dashboard & BI Case Study
+
+To complement the predictive modeling limitation, an interactive business intelligence dashboard was built in Microsoft Excel to monitor operations and customer feedback visually.
+
+### Dashboard Architecture & Workflow
+* **Data Preparation:** Cleaned and transformed raw data (e.g., standardizing fulfillment flags like converting `0/1` to `OnTime/Late`).
+* **Summary & Analysis Engines:** Built **15 pivot tables** across dedicated worksheets to aggregate counts, percentages, and averages for variables like customer care calls, prior purchases, product importance, and discounts.
+* **Advanced Visualization & Interactivity:** 
+  * Assembled scorecards, icon integration, and structured frameworks using custom color palettes.
+  * Implemented Excel's **Camera Tool** to dynamically snapshot summary tables onto the dashboard layout.
+  * Added **Slicers** for real-time interactive data filtering across all charts.
+
+Read the full written walkthrough of the dashboard build here: [Build Excel Dashboard for E-Commerce Data](https://medium.com/@jadangpooiling/build-excel-dashboard-for-e-commerce-data-4898d540c6fe).
 
 https://user-images.githubusercontent.com/57357735/230870228-6b66ab5c-1b04-485e-86e8-bd7b81fd34eb.mp4
 
