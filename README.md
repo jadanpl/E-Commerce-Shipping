@@ -28,7 +28,7 @@ The dataset was obtained from the <a href ="https://www.kaggle.com/datasets/prac
 * **The Performance Ceiling:** All models (Random Forest, Logistic Regression, KNN, Naive Bayes) consistently capped at **~50% Macro Recall and ROC-AUC** (random-guessing level). 
 * **Feature Limitation:** Rigorous validation proved that physical logistics attributes (`weight_in_gms`, `cost_of_the_product`, `warehouse_block`, `mode_of_shipment`) share overlapping distributions and lack direct mathematical correlation with human customer satisfaction ratings.
 * **Strategic Takeaway:** Customer sentiment relies on unmeasured qualitative factors (product quality, customer support, item damage) rather than supply-chain metadata alone.
-For full explanation, please read my Medium article, <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python (Model Deployment Using Flask Included) | Classification Case Study Using KNN Model</a>.
+For full explanation, please visit my Medium article, <a href="https://jadangpooiling.medium.com/crisp-dm-methodology-with-python-model-deployment-using-flask-included-classification-case-33b9e184f4e7">CRISP-DM Methodology With Python | Classification Case Study</a>.
 ---
 
 ## 📊 Part 2: Excel Interactive Dashboard & BI Case Study
@@ -45,10 +45,6 @@ To complement the predictive modeling limitation, an interactive business intell
 
 Read the full written walkthrough of the dashboard build here: [Build Excel Dashboard for E-Commerce Data](https://medium.com/@jadangpooiling/build-excel-dashboard-for-e-commerce-data-4898d540c6fe).
 
-https://user-images.githubusercontent.com/57357735/230870228-6b66ab5c-1b04-485e-86e8-bd7b81fd34eb.mp4
-
-
 ## Recommendation 📥
-* Use other classification machine learning algorithms, such as support vector machine, random forest classifier, and logistic regression. 
-* Utilize Randomized Search or Grid Search to tune the hyperparameters to check if the accuracy score would be higher.
+* To effectively predict customer dissatisfaction or 1-star reviews in future iterations, the business must collect and integrate qualitative data streams—such as customer service interaction logs, product quality metrics, packaging feedback, or customer sentiment text data—rather than relying solely on supply-chain metadata.
 * You may try to build multiclass classification model using this dataset, which means you may not need to map the rating 2 to 5 as 0 before you train the model. For a multiclass multiclass classification model, it will return the result that indicates whether a customer will give rating 1, 2, 3, 4, or 5 specifically, instead of indicating whether a customer will give rating 1 or not.  
