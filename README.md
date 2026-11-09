@@ -16,7 +16,6 @@ The dataset was obtained from the <a href ="https://www.kaggle.com/datasets/prac
 * **Model Validation & Tuning:** `StratifiedKFold`, `RandomizedSearchCV`, multi-metric tracking (`recall_macro`, `f1_macro`, `accuracy`, `roc_auc`)
 * **Excel Data Visualization & BI:** Pivot Tables, Pivot Charts (Pie, Area, Doughnut, Column, Bar charts), Slicers, Camera Tool, and custom color palettes ("Trees During Fall" theme).
   
-## Result 🔎
 ## 🔍 Part 1: Python Machine Learning Pipeline
 
 ### Methodology & Experimental Workflow
